@@ -1,29 +1,27 @@
 import {
   DrawerContentComponentProps,
-  DrawerItem,
+  DrawerContentScrollView,
+  DrawerItemList,
 } from '@react-navigation/drawer';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {RootStackParams} from './StackNavigator';
+import {globalColors} from '../theme/theme';
 
-export const DrawerContent = (_props: DrawerContentComponentProps) => {
-  const navigation = useNavigation<NavigationProp<RootStackParams>>();
-
+export const DrawerContent = (props: DrawerContentComponentProps) => {
   return (
-    <View style={styles.container}>
-      <DrawerItem onPress={() => navigation.navigate('Home')} label="Home" />
-      <DrawerItem
-        onPress={() => navigation.navigate('Products')}
-        label="Products"
-      />
-    </View>
+    <DrawerContentScrollView>
+      <View style={styles.container} />
+
+      <DrawerItemList {...props} />
+    </DrawerContentScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 10,
+    height: 200,
+    backgroundColor: globalColors.primary,
+    margin: 30,
+    borderRadius: 50,
   },
 });
