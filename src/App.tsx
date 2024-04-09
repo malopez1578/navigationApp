@@ -8,6 +8,7 @@ export const App = () => {
   return (
     <NavigationContainer>
       <DrawerNavigator />
+      {/* <BottomTabNavigator /> */}
     </NavigationContainer>
   );
 };

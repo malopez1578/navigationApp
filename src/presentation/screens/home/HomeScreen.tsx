@@ -1,23 +1,11 @@
 /* eslint-disable react/no-unstable-nested-components */
-import {
-  DrawerActions,
-  NavigationProp,
-  useNavigation,
-} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {View} from 'react-native';
+import {MenuButton} from '../../components/shared/MenuButton';
 import {PrimaryButton} from '../../components/shared/PrimaryButton';
 import {RootStackParams} from '../../routes/StackNavigator';
 import {globalStyles} from '../../theme/theme';
-
-const MenuButton = () => {
-  const navigation = useNavigation<NavigationProp<RootStackParams>>();
-  return (
-    <Pressable onPress={() => navigation.dispatch(DrawerActions.toggleDrawer)}>
-      <Text>Menu</Text>
-    </Pressable>
-  );
-};
 
 export const HomeScreen = () => {
   const navigation = useNavigation<NavigationProp<RootStackParams>>();
